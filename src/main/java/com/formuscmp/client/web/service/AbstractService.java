@@ -96,9 +96,9 @@ public abstract class AbstractService {
 		requestResource.setBaseUri(appBaseUrl);
 		requestResource.setOrigin(originApi);
 		if (form!=null)
-			requestResource.setParameters( form.entrySet().stream() // from Map<String, List<String>>
-			    .collect(Collectors.toMap(                      // Collected to Map<String, String>
-			            Entry::getKey,                          // ... the key remains the same
+			requestResource.setParameters( form.entrySet().stream()
+			    .collect(Collectors.toMap(                      
+			            Entry::getKey,                          
 			            e -> String.join(",", e.getValue()))));
 		
 		return restClient.post()
@@ -107,10 +107,6 @@ public abstract class AbstractService {
 			    .body(requestResource)
 			    .retrieve()
 			    .onStatus(new CmpResponseErrorHandler(ajax))
-			    /*.onStatus(status -> status.value() != 200, (request, response) -> {
-			    	if (ajax) throw new ExcepcionApp(response.getStatusCode().value(), 0, new String(response.getBody().readAllBytes()), null, null);
-			    	if (!ajax) throw new RuntimeException(response.getStatusText());
-			    })*/
 			    .body(ResponseResource.class);
 
 	}
