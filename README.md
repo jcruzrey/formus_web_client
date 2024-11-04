@@ -3,9 +3,12 @@ Formus Case Management Platform
 
 Web enabled client to demostrate Rest Api integration
 
-1.- Add the jars as dependencies as external libs
-2.- Run the Spring Boot Application
-3.- Call localhot:8080/
+1.- Add the jars as dependencies as external libs.
+
+2.- Run the Spring Boot Application.
+
+3.- Call localhost:8080/ 
+
 4.- Review the controllers, so you get and idea on how to integrate with your own apps.
 
 Inside application.properties you will find all the configurations, they are all set so you only have to execute. 
